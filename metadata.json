@@ -1,0 +1,6 @@
+{
+  "name": "Aerecon LMS",
+  "description": "Aerecon LMS — Premium Business Management Learning Platform featuring video lectures, live Zoom classes, student assessments, notes, and comprehensive administration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
