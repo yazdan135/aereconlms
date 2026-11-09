@@ -225,10 +225,10 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
       maxWidth="2xl"
     >
       {/* Visual Step Indicator Bar */}
-      <div className="mb-5 flex items-center justify-between border-b border-slate-100 pb-3">
-        <div className="flex items-center gap-2">
+      <div className="mb-5 flex items-center justify-between gap-1 sm:gap-2 border-b border-slate-100 pb-3">
+        <div className="flex items-center gap-1.5 sm:gap-2 truncate">
           <div
-            className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+            className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
               step === 'details'
                 ? 'bg-[#0f2b48] text-white'
                 : 'bg-emerald-600 text-white cursor-pointer'
@@ -238,31 +238,31 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
             {step === 'payment' ? <Check className="w-3.5 h-3.5" /> : '1'}
           </div>
           <span
-            className={`text-xs font-bold ${
+            className={`text-[11px] sm:text-xs font-bold truncate ${
               step === 'details' ? 'text-slate-900' : 'text-emerald-700 cursor-pointer'
             }`}
             onClick={() => setStep('details')}
           >
-            1. Student Information
+            1. Candidate Info
           </span>
         </div>
 
-        <div className="w-12 h-0.5 bg-slate-200" />
+        <div className="w-6 sm:w-12 h-0.5 bg-slate-200 shrink-0" />
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 truncate">
           <div
-            className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+            className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
               step === 'payment' ? 'bg-[#0f2b48] text-white' : 'bg-slate-100 text-slate-400'
             }`}
           >
             2
           </div>
           <span
-            className={`text-xs font-bold ${
+            className={`text-[11px] sm:text-xs font-bold truncate ${
               step === 'payment' ? 'text-slate-900' : 'text-slate-400'
             }`}
           >
-            2. Deposit & Screenshot Proof
+            2. Deposit & Slip Proof
           </span>
         </div>
       </div>
@@ -387,17 +387,17 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
           </div>
 
           {/* Buttons */}
-          <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-100">
+          <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-end gap-2.5 sm:gap-3 pt-3 border-t border-slate-100">
             <button
               type="button"
               onClick={handleResetAndClose}
-              className="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800 rounded-lg hover:bg-slate-100 transition-colors"
+              className="w-full sm:w-auto px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800 rounded-lg hover:bg-slate-100 transition-colors text-center cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-5 py-2.5 text-xs font-semibold text-white bg-[#0f2b48] hover:bg-[#163e68] rounded-lg shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
+              className="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold text-white bg-[#0f2b48] hover:bg-[#163e68] rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <span>Next: Deposit Details & Promo Code</span>
               <ArrowRight className="w-4 h-4" />
@@ -486,17 +486,17 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
               </div>
             </div>
 
-            <div className="p-2 rounded bg-blue-50/70 border border-blue-200/80 flex items-center justify-between text-[11px] text-blue-900">
+            <div className="p-2 rounded bg-blue-50/70 border border-blue-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-[11px] text-blue-900">
               <div className="flex items-center gap-1.5">
-                <QrCode className="w-3.5 h-3.5 text-blue-700" />
-                <span>
+                <QrCode className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+                <span className="leading-tight">
                   EasyPaisa & JazzCash: <span className="font-bold font-mono">0300-8472910</span> (Aerecon Education)
                 </span>
               </div>
               <button
                 type="button"
                 onClick={() => handleCopy('03008472910', 'wallet')}
-                className="text-[10px] font-semibold text-blue-700 hover:underline"
+                className="text-[10px] font-semibold text-blue-700 hover:underline self-end sm:self-auto cursor-pointer"
               >
                 {isCopied === 'wallet' ? 'Copied' : 'Copy Number'}
               </button>
@@ -697,11 +697,11 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+          <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-2.5 pt-3 border-t border-slate-100">
             <button
               type="button"
               onClick={() => setStep('details')}
-              className="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800 rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="w-full sm:w-auto px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to Details</span>
@@ -709,7 +709,7 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
 
             <button
               type="submit"
-              className="px-6 py-2.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
+              className="w-full sm:w-auto px-6 py-2.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer text-center"
             >
               <ShieldCheck className="w-4 h-4 text-emerald-200" />
               <span>Submit Verification Request ({formatPKR(finalAmount)})</span>

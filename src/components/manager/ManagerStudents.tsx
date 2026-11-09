@@ -128,12 +128,12 @@ export const ManagerStudents: React.FC<ManagerStudentsProps> = ({
           />
         </div>
 
-        <div className="flex items-center gap-2 w-full md:w-auto">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full md:w-auto">
           {/* Status Filter */}
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as any)}
-            className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-slate-700 outline-none"
+            className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-slate-700 outline-none w-full sm:w-auto"
           >
             <option value="All">All Statuses</option>
             <option value="Active">Active</option>
@@ -145,7 +145,7 @@ export const ManagerStudents: React.FC<ManagerStudentsProps> = ({
           <select
             value={batchFilter}
             onChange={(e) => setBatchFilter(e.target.value)}
-            className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-slate-700 outline-none"
+            className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-slate-700 outline-none w-full sm:w-auto"
           >
             <option value="All">All Batches</option>
             {batches.map((b) => (

@@ -62,7 +62,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in duration-100"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-6 sm:pt-20 p-2 sm:p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in duration-100"
       onClick={onClose}
     >
       <div

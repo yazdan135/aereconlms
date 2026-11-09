@@ -81,36 +81,38 @@ export const FinanceExpenses: React.FC<FinanceExpensesProps> = ({
 
       {/* Expenses Table */}
       <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
-        <table className="w-full text-left text-xs">
-          <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
-            <tr>
-              <th className="py-3 px-4">Date</th>
-              <th className="py-3 px-4">Expense Category</th>
-              <th className="py-3 px-4">Description</th>
-              <th className="py-3 px-4">Receipt / Invoice #</th>
-              <th className="py-3 px-4">Authorized By</th>
-              <th className="py-3 px-4 text-right">Amount</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100">
-            {expenseList.map((exp) => (
-              <tr key={exp.id} className="hover:bg-slate-50/60">
-                <td className="py-3 px-4 text-slate-500 whitespace-nowrap">{exp.date}</td>
-                <td className="py-3 px-4">
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-800">
-                    {exp.category}
-                  </span>
-                </td>
-                <td className="py-3 px-4 text-slate-700 max-w-sm">{exp.description}</td>
-                <td className="py-3 px-4 text-slate-500 font-mono text-[11px]">{exp.receiptNumber}</td>
-                <td className="py-3 px-4 text-slate-600">{exp.approvedBy}</td>
-                <td className="py-3 px-4 text-right font-mono font-bold text-red-600">
-                  -PKR {exp.amountPKR.toLocaleString()}
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs">
+            <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
+              <tr>
+                <th className="py-3 px-4">Date</th>
+                <th className="py-3 px-4">Expense Category</th>
+                <th className="py-3 px-4">Description</th>
+                <th className="py-3 px-4">Receipt / Invoice #</th>
+                <th className="py-3 px-4">Authorized By</th>
+                <th className="py-3 px-4 text-right">Amount</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {expenseList.map((exp) => (
+                <tr key={exp.id} className="hover:bg-slate-50/60">
+                  <td className="py-3 px-4 text-slate-500 whitespace-nowrap">{exp.date}</td>
+                  <td className="py-3 px-4">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-800">
+                      {exp.category}
+                    </span>
+                  </td>
+                  <td className="py-3 px-4 text-slate-700 max-w-sm">{exp.description}</td>
+                  <td className="py-3 px-4 text-slate-500 font-mono text-[11px]">{exp.receiptNumber}</td>
+                  <td className="py-3 px-4 text-slate-600">{exp.approvedBy}</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-red-600 whitespace-nowrap">
+                    -PKR {exp.amountPKR.toLocaleString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* Add Modal */}

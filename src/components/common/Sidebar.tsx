@@ -27,6 +27,7 @@ import {
   Database,
   Layers,
   Lock,
+  X,
 } from 'lucide-react';
 import { UserRole } from '../../types';
 
@@ -194,20 +195,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
       : 'Student Classroom';
 
   const content = (
-    <div className="h-full flex flex-col justify-between select-none">
+    <div className="h-full flex flex-col justify-between select-none overflow-y-auto">
       <div className="py-3">
-        {/* Workspace Title */}
+        {/* Workspace Title & Close/Collapse */}
         <div className="px-4 mb-3 flex items-center justify-between">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 truncate">
             {roleTitle}
           </span>
-          <button
-            onClick={onToggleCollapse}
-            aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-            className="hidden lg:flex p-1 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
-          >
-            {isCollapsed ? <ChevronRight className="w-3.5 h-3.5" /> : <ChevronLeft className="w-3.5 h-3.5" />}
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={onToggleCollapse}
+              aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+              className="hidden lg:flex p-1 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+            >
+              {isCollapsed ? <ChevronRight className="w-3.5 h-3.5" /> : <ChevronLeft className="w-3.5 h-3.5" />}
+            </button>
+            <button
+              onClick={onCloseMobile}
+              aria-label="Close navigation menu"
+              className="lg:hidden p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
         {/* Navigation items list */}
@@ -254,7 +264,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Bottom Info Banner */}
       {!isCollapsed && (
-        <div className="p-3 m-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-[11px]">
+        <div className="p-3 m-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-[11px] shrink-0">
           <div className="flex items-center gap-2 mb-1 text-slate-800 font-bold">
             <Sparkles className="w-3.5 h-3.5 text-blue-600 shrink-0" />
             <span>Aerecon Edu v3.4</span>
@@ -287,7 +297,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           onClick={onCloseMobile}
         >
           <div
-            className="w-72 max-w-[85vw] bg-white h-full shadow-2xl p-2 animate-in slide-in-from-left duration-200"
+            className="w-72 max-w-[85vw] bg-white h-full shadow-2xl p-2 animate-in slide-in-from-left duration-200 overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {content}

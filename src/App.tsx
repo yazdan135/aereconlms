@@ -323,7 +323,7 @@ export default function App() {
 
   return (
     <PermissionProvider role={role}>
-      <div className="min-h-screen bg-[#f8f9fa] text-slate-900 flex flex-col antialiased selection:bg-blue-100 selection:text-blue-900">
+      <div className="min-h-screen bg-[#f8f9fa] text-slate-900 flex flex-col antialiased selection:bg-blue-100 selection:text-blue-900 w-full overflow-x-hidden">
         {/* Universal Top Navigation */}
         <Navbar
           currentRole={role}
@@ -350,7 +350,7 @@ export default function App() {
         {/* Main Content Area */}
         {role === 'public' ? (
           // Public Website View
-          <main className="flex-1">
+          <main className="flex-1 w-full min-w-0">
             <LandingPage
               course={course}
               onSelectRole={(targetRole) => {
@@ -369,7 +369,7 @@ export default function App() {
           </main>
         ) : (
           // Authenticated Portal Layout
-          <div className="flex-1 flex w-full">
+          <div className="flex-1 flex w-full min-w-0">
             {/* Universal Sidebar */}
             <Sidebar
               role={role}
@@ -383,7 +383,7 @@ export default function App() {
             />
 
             {/* Main App Canvas */}
-            <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
+            <main className="flex-1 min-w-0 p-3 sm:p-5 lg:p-8 max-w-7xl mx-auto w-full">
               {/* ══════════════ 1. SUPER ADMIN PORTAL ══════════════ */}
               {role === 'super_admin' && (
                 <>

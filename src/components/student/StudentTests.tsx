@@ -120,7 +120,7 @@ export const StudentTests: React.FC<StudentTestsProps> = ({
             <h2 className="text-lg font-bold text-slate-900">{activeQuiz.title}</h2>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4">
             {!isExamSubmitted ? (
               <div
                 className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono font-bold ${
@@ -233,7 +233,7 @@ export const StudentTests: React.FC<StudentTestsProps> = ({
                   type="button"
                   onClick={() => handleSelectOption(currentQuestionIndex, optIdx)}
                   disabled={isExamSubmitted}
-                  className={`w-full p-3.5 rounded-xl border text-left text-xs transition-all flex items-center justify-between cursor-pointer ${
+                  className={`w-full p-3 sm:p-3.5 rounded-xl border text-left text-xs transition-all flex items-start sm:items-center justify-between gap-2.5 cursor-pointer ${
                     isCorrectAnswer
                       ? 'bg-emerald-50 border-emerald-300 text-emerald-950 font-medium'
                       : isWrongSelection
@@ -243,9 +243,9 @@ export const StudentTests: React.FC<StudentTestsProps> = ({
                       : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
                   }`}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-start gap-2.5 sm:gap-3 min-w-0 flex-1">
                     <span
-                      className={`w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs shrink-0 ${
+                      className={`w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 sm:mt-0 ${
                         isSelected
                           ? 'bg-blue-600 text-white'
                           : 'bg-slate-100 text-slate-600 border border-slate-200'
@@ -253,14 +253,14 @@ export const StudentTests: React.FC<StudentTestsProps> = ({
                     >
                       {String.fromCharCode(65 + optIdx)}
                     </span>
-                    <span>{opt}</span>
+                    <span className="leading-relaxed break-words">{opt}</span>
                   </div>
 
                   {isCorrectAnswer && (
-                    <span className="text-[11px] font-bold text-emerald-700">✓ Correct</span>
+                    <span className="text-[11px] font-bold text-emerald-700 shrink-0">✓ Correct</span>
                   )}
                   {isWrongSelection && (
-                    <span className="text-[11px] font-bold text-red-600">✗ Your Answer</span>
+                    <span className="text-[11px] font-bold text-red-600 shrink-0">✗ Your Answer</span>
                   )}
                 </button>
               );
@@ -407,7 +407,7 @@ export const StudentTests: React.FC<StudentTestsProps> = ({
                 <p className="text-xs text-slate-600 line-clamp-2">{quiz.description}</p>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-500">
                 <div className="flex items-center gap-3">
                   <span className="flex items-center gap-1">
                     <Clock className="w-3.5 h-3.5" /> {quiz.durationMinutes} mins
@@ -418,7 +418,7 @@ export const StudentTests: React.FC<StudentTestsProps> = ({
 
                 <button
                   onClick={() => startTest(quiz)}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl shadow-xs transition-colors cursor-pointer"
+                  className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl shadow-xs transition-colors cursor-pointer text-center"
                 >
                   {quiz.status === 'Completed' ? 'Review / Retake' : 'Begin Test'}
                 </button>

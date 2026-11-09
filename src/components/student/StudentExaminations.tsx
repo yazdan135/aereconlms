@@ -85,41 +85,41 @@ export const StudentExaminations: React.FC<StudentExaminationsProps> = ({
       </div>
 
       {/* ─── TOP METRICS BAR ─── */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs">
-          <div className="text-xs text-slate-500 font-medium mb-1">Total Tests</div>
-          <div className="text-2xl font-bold text-slate-900">{totalTests}</div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
+        <div className="bg-white p-3 sm:p-4 rounded-xl border border-slate-200/80 shadow-xs">
+          <div className="text-[11px] sm:text-xs text-slate-500 font-medium mb-0.5 sm:mb-1">Total Tests</div>
+          <div className="text-xl sm:text-2xl font-bold text-slate-900">{totalTests}</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs">
-          <div className="text-xs text-slate-500 font-medium mb-1">Attempted</div>
-          <div className="text-2xl font-bold text-blue-600">{attemptedTests}</div>
+        <div className="bg-white p-3 sm:p-4 rounded-xl border border-slate-200/80 shadow-xs">
+          <div className="text-[11px] sm:text-xs text-slate-500 font-medium mb-0.5 sm:mb-1">Attempted</div>
+          <div className="text-xl sm:text-2xl font-bold text-blue-600">{attemptedTests}</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs">
-          <div className="text-xs text-slate-500 font-medium mb-1">Tests Passed</div>
-          <div className="text-2xl font-bold text-emerald-600">{passedTests}</div>
+        <div className="bg-white p-3 sm:p-4 rounded-xl border border-slate-200/80 shadow-xs">
+          <div className="text-[11px] sm:text-xs text-slate-500 font-medium mb-0.5 sm:mb-1">Tests Passed</div>
+          <div className="text-xl sm:text-2xl font-bold text-emerald-600">{passedTests}</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs">
-          <div className="text-xs text-slate-500 font-medium mb-1">Tests Failed</div>
-          <div className="text-2xl font-bold text-red-600">{failedTests}</div>
+        <div className="bg-white p-3 sm:p-4 rounded-xl border border-slate-200/80 shadow-xs">
+          <div className="text-[11px] sm:text-xs text-slate-500 font-medium mb-0.5 sm:mb-1">Tests Failed</div>
+          <div className="text-xl sm:text-2xl font-bold text-red-600">{failedTests}</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs">
-          <div className="text-xs text-slate-500 font-medium mb-1">Locked Tests</div>
-          <div className="text-2xl font-bold text-slate-400">{lockedTests}</div>
+        <div className="bg-white p-3 sm:p-4 rounded-xl border border-slate-200/80 shadow-xs">
+          <div className="text-[11px] sm:text-xs text-slate-500 font-medium mb-0.5 sm:mb-1">Locked Tests</div>
+          <div className="text-xl sm:text-2xl font-bold text-slate-400">{lockedTests}</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs">
-          <div className="text-xs text-slate-500 font-medium mb-1">Average Score</div>
-          <div className="text-2xl font-bold text-indigo-600">{averageScore}%</div>
+        <div className="bg-white p-3 sm:p-4 rounded-xl border border-slate-200/80 shadow-xs">
+          <div className="text-[11px] sm:text-xs text-slate-500 font-medium mb-0.5 sm:mb-1">Average Score</div>
+          <div className="text-xl sm:text-2xl font-bold text-indigo-600">{averageScore}%</div>
         </div>
       </div>
 
       {/* ─── VISUAL PROGRESS BAR ─── */}
-      <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
-        <div className="flex items-center justify-between text-xs font-semibold text-slate-700">
+      <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs font-semibold text-slate-700 gap-1">
           <span>Overall Examination Completion</span>
           <span>
             {passedTests} of {totalTests} Passed ({Math.round((passedTests / Math.max(1, totalTests)) * 100)}%)
@@ -137,8 +137,8 @@ export const StudentExaminations: React.FC<StudentExaminationsProps> = ({
             title="Failed (Retake Available)"
           />
         </div>
-        <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-slate-400 pt-1 gap-2">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <span className="flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" /> Passed & Unlocked
             </span>
@@ -146,10 +146,10 @@ export const StudentExaminations: React.FC<StudentExaminationsProps> = ({
               <span className="w-2 h-2 rounded-full bg-red-400 inline-block" /> Failed / Needs Retake
             </span>
             <span className="flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-slate-200 inline-block" /> Locked (Prerequisites pending)
+              <span className="w-2 h-2 rounded-full bg-slate-200 inline-block" /> Locked
             </span>
           </div>
-          <span>Grand Test activates at 100% pass rate</span>
+          <span className="text-[10px] sm:text-[11px]">Grand Test activates at 100% pass rate</span>
         </div>
       </div>
 

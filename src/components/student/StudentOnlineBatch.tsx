@@ -54,7 +54,7 @@ export const StudentOnlineBatch: React.FC = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-xs">
           <div>
             <div className="text-slate-400">Executive Mentor</div>
             <div className="font-semibold text-slate-800 mt-0.5">{batchDetails.instructor}</div>

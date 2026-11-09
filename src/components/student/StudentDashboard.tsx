@@ -76,20 +76,20 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
             Your sequential learning track is active. Finish each video and pass its lecture test to unlock the next chapter.
           </p>
 
-          <div className="mt-5 flex flex-wrap items-center gap-3">
+          <div className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <button
               onClick={() => onNavigate('classroom', nextLecture?.id)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-400 text-white text-xs font-semibold rounded-xl transition-all shadow-md cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-400 text-white text-xs font-semibold rounded-xl transition-all shadow-md cursor-pointer"
             >
-              <Play className="w-4 h-4 fill-white" />
-              Continue Learning ({nextLecture ? nextLecture.title.slice(0, 32) + '...' : 'Classroom'})
+              <Play className="w-4 h-4 fill-white shrink-0" />
+              <span className="truncate">Continue Learning ({nextLecture ? nextLecture.title.slice(0, 28) + '...' : 'Classroom'})</span>
             </button>
             <button
               onClick={() => onNavigate('examinations')}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold rounded-xl border border-white/20 transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold rounded-xl border border-white/20 transition-all cursor-pointer"
             >
-              <FileCheck2 className="w-4 h-4" />
-              View Examination Progress
+              <FileCheck2 className="w-4 h-4 shrink-0" />
+              <span>View Examination Progress</span>
             </button>
           </div>
         </div>
@@ -99,7 +99,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
       </div>
 
       {/* ─── KPI METRICS ROW ─── */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {/* Course Progress */}
         <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
           <div className="flex items-center justify-between mb-2">

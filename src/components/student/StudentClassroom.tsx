@@ -139,7 +139,15 @@ export const StudentClassroom: React.FC<StudentClassroomProps> = ({
           </h1>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <a
+            href="#syllabus-drawer"
+            className="lg:hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 border border-blue-200 text-xs font-semibold"
+          >
+            <Bookmark className="w-3.5 h-3.5" />
+            <span>Syllabus ({completedLectureIds.length}/{allLectures.length})</span>
+          </a>
+
           {isCurrentCompleted ? (
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
@@ -215,7 +223,7 @@ export const StudentClassroom: React.FC<StudentClassroomProps> = ({
                 if (onNavigateToTest) onNavigateToTest();
                 else onShowToast('Navigating to Tests terminal', 'info');
               }}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl flex items-center gap-1.5 shadow-xs cursor-pointer"
+              className="w-full sm:w-auto justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl flex items-center gap-1.5 shadow-xs cursor-pointer"
             >
               <FileCheck2 className="w-4 h-4" />
               {isCurrentCompleted ? 'Review Test Results' : 'Take Lecture Test'}
@@ -223,7 +231,7 @@ export const StudentClassroom: React.FC<StudentClassroomProps> = ({
           </div>
 
           {/* ─── LECTURE DETAILS & KEY TAKEAWAYS ─── */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs space-y-5">
+          <div className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-6 shadow-xs space-y-5">
             <div>
               <h3 className="text-base font-bold text-slate-900 mb-2">Executive Overview</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -334,7 +342,7 @@ export const StudentClassroom: React.FC<StudentClassroomProps> = ({
         </div>
 
         {/* RIGHT COLUMN: MODULE & SEQUENTIAL LECTURE DRAWER (4 COLS) */}
-        <div className="lg:col-span-4 space-y-4">
+        <div id="syllabus-drawer" className="lg:col-span-4 space-y-4 scroll-mt-20">
           <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-xs sticky top-20">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
               <div>

@@ -86,7 +86,7 @@ export const StudentLiveClasses: React.FC<StudentLiveClassesProps> = ({
               </div>
 
               {/* Product Pricing Card */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 <div className="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-100">
                   <div className="text-xs text-indigo-800 font-semibold mb-1">Monthly Subscription</div>
                   <div className="text-2xl font-bold text-indigo-950">PKR 6,000 <span className="text-xs font-normal">/ mo</span></div>
@@ -106,11 +106,11 @@ export const StudentLiveClasses: React.FC<StudentLiveClassesProps> = ({
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <span className="text-xs text-slate-500">Instant batch assignment following finance verification</span>
                 <button
                   onClick={() => setEnrollmentStep('form')}
-                  className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow-xs cursor-pointer"
+                  className="w-full sm:w-auto px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow-xs cursor-pointer text-center"
                 >
                   Enroll in Live Cohort Now
                 </button>
@@ -196,17 +196,17 @@ export const StudentLiveClasses: React.FC<StudentLiveClassesProps> = ({
                   />
                 </div>
 
-                <div className="flex items-center justify-between pt-2">
+                <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-2.5 pt-2">
                   <button
                     type="button"
                     onClick={() => setEnrollmentStep('info')}
-                    className="px-4 py-2 border border-slate-200 text-slate-600 rounded-xl"
+                    className="w-full sm:w-auto px-4 py-2 border border-slate-200 text-slate-600 rounded-xl hover:bg-slate-50 text-center cursor-pointer"
                   >
                     Back
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-xs cursor-pointer"
+                    className="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-xs cursor-pointer text-center"
                   >
                     Submit Live Enrollment
                   </button>
@@ -254,7 +254,7 @@ export const StudentLiveClasses: React.FC<StudentLiveClassesProps> = ({
               </p>
             </div>
 
-            <div className="text-right">
+            <div className="text-left md:text-right">
               <div className="text-xs text-slate-400">Monthly Status</div>
               <div className="text-xs font-bold text-emerald-700">Paid • Next Due: Dec 01, 2026</div>
             </div>

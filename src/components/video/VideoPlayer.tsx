@@ -226,13 +226,13 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
         {!isScreenCaptureDetected && (
           <div
             style={currentPos as React.CSSProperties}
-            className="absolute z-20 pointer-events-none transition-all duration-1000 ease-in-out"
+            className="absolute z-20 pointer-events-none transition-all duration-1000 ease-in-out scale-75 sm:scale-100 origin-top-left"
           >
-            <div className="bg-slate-950/60 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/10 text-white/45 text-[10px] font-mono leading-tight tracking-wide shadow-sm max-w-xs">
+            <div className="bg-slate-950/60 backdrop-blur-xs px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-white/10 text-white/45 text-[9px] sm:text-[10px] font-mono leading-tight tracking-wide shadow-sm max-w-xs">
               <div className="font-semibold text-blue-300/60">AERECON EDU SECURE STREAM</div>
               <div>Licensed to: {studentName}</div>
               <div>UID: {studentId} • IP Verified</div>
-              <div className="text-[9px] text-red-300/50 uppercase">Distribution strictly prohibited</div>
+              <div className="text-[8px] sm:text-[9px] text-red-300/50 uppercase">Distribution strictly prohibited</div>
             </div>
           </div>
         )}
@@ -299,7 +299,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
               </div>
 
               {/* Volume */}
-              <div className="flex items-center gap-1.5 pl-2">
+              <div className="flex items-center gap-1 sm:gap-1.5 pl-1 sm:pl-2">
                 <button
                   onClick={toggleMute}
                   className="p-1 rounded-lg hover:bg-white/10 text-slate-300 transition-colors"
@@ -313,21 +313,21 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
                   step={0.05}
                   value={isMuted ? 0 : volume}
                   onChange={handleVolumeChange}
-                  className="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                  className="hidden sm:inline-block w-14 lg:w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500"
                 />
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               {/* Watch threshold badge */}
               <span
-                className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
+                className={`text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium ${
                   watchPercentage >= completionThreshold
                     ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
                     : 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
                 }`}
               >
-                {watchPercentage}% Watched {watchPercentage >= completionThreshold && '✓ Target Met'}
+                {watchPercentage}% <span className="hidden xs:inline">Watched</span> {watchPercentage >= completionThreshold && '✓'}
               </span>
 
               <button
@@ -343,7 +343,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
       </div>
 
       {/* Completion & Security Guidance Bar */}
-      <div className="flex items-center justify-between px-3 py-2 bg-slate-50 border border-slate-200/80 rounded-xl text-xs text-slate-600">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-3 py-2 bg-slate-50 border border-slate-200/80 rounded-xl text-xs text-slate-600">
         <div className="flex items-center gap-2">
           {watchPercentage >= completionThreshold ? (
             <>
@@ -363,7 +363,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
           )}
         </div>
 
-        <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
+        <div className="flex items-center gap-1.5 text-[11px] text-slate-400 shrink-0">
           <ShieldAlert className="w-3.5 h-3.5 text-blue-500" />
           <span>Dynamic Watermark Protected</span>
         </div>

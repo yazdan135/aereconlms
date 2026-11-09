@@ -148,67 +148,69 @@ export const ManagerCertificates: React.FC<ManagerCertificatesProps> = ({
 
       {activeTab === 'pending' && (
         <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
-          <table className="w-full text-left text-xs">
-            <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
-              <tr>
-                <th className="py-3 px-4">Student</th>
-                <th className="py-3 px-4">Program</th>
-                <th className="py-3 px-4">Grand Test Score</th>
-                <th className="py-3 px-4">Video Progress</th>
-                <th className="py-3 px-4">Applied Date</th>
-                <th className="py-3 px-4 text-right">Review Action</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {pendingApplications.map((app) => (
-                <tr key={app.id} className="hover:bg-slate-50/60">
-                  <td className="py-3 px-4">
-                    <div className="font-bold text-slate-900">{app.studentName}</div>
-                    <div className="text-[10px] text-slate-400">{app.studentEmail}</div>
-                  </td>
-                  <td className="py-3 px-4 text-slate-700">{app.courseTitle}</td>
-                  <td className="py-3 px-4 font-mono font-bold text-emerald-700">
-                    {app.grandTestScore}% (Passed)
-                  </td>
-                  <td className="py-3 px-4">
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">
-                      100% Watched
-                    </span>
-                  </td>
-                  <td className="py-3 px-4 text-slate-400">{app.appliedAt}</td>
-                  <td className="py-3 px-4 text-right">
-                    <div className="flex items-center justify-end gap-1.5">
-                      <button
-                        onClick={() => handleApproveApplication(app)}
-                        className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg"
-                      >
-                        Approve & Issue
-                      </button>
-                      <button
-                        onClick={() => handleRejectApplication(app.id, app.studentName)}
-                        className="px-2.5 py-1 bg-red-50 hover:bg-red-100 text-red-700 text-xs font-semibold rounded-lg"
-                      >
-                        Reject
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-              {pendingApplications.length === 0 && (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs">
+              <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
                 <tr>
-                  <td colSpan={6} className="py-8 text-center text-slate-400">
-                    No certificate applications currently pending review.
-                  </td>
+                  <th className="py-3 px-4">Student</th>
+                  <th className="py-3 px-4">Program</th>
+                  <th className="py-3 px-4">Grand Test Score</th>
+                  <th className="py-3 px-4">Video Progress</th>
+                  <th className="py-3 px-4">Applied Date</th>
+                  <th className="py-3 px-4 text-right">Review Action</th>
                 </tr>
-              )}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {pendingApplications.map((app) => (
+                  <tr key={app.id} className="hover:bg-slate-50/60">
+                    <td className="py-3 px-4">
+                      <div className="font-bold text-slate-900">{app.studentName}</div>
+                      <div className="text-[10px] text-slate-400">{app.studentEmail}</div>
+                    </td>
+                    <td className="py-3 px-4 text-slate-700">{app.courseTitle}</td>
+                    <td className="py-3 px-4 font-mono font-bold text-emerald-700">
+                      {app.grandTestScore}% (Passed)
+                    </td>
+                    <td className="py-3 px-4">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">
+                        100% Watched
+                      </span>
+                    </td>
+                    <td className="py-3 px-4 text-slate-400 whitespace-nowrap">{app.appliedAt}</td>
+                    <td className="py-3 px-4 text-right">
+                      <div className="flex items-center justify-end gap-1.5">
+                        <button
+                          onClick={() => handleApproveApplication(app)}
+                          className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg cursor-pointer"
+                        >
+                          Approve & Issue
+                        </button>
+                        <button
+                          onClick={() => handleRejectApplication(app.id, app.studentName)}
+                          className="px-2.5 py-1 bg-red-50 hover:bg-red-100 text-red-700 text-xs font-semibold rounded-lg cursor-pointer"
+                        >
+                          Reject
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+                {pendingApplications.length === 0 && (
+                  <tr>
+                    <td colSpan={6} className="py-8 text-center text-slate-400">
+                      No certificate applications currently pending review.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
       {activeTab === 'issued' && (
         <div className="space-y-4">
-          <div className="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-between">
+          <div className="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div className="relative w-full sm:w-80">
               <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
               <input
@@ -223,41 +225,43 @@ export const ManagerCertificates: React.FC<ManagerCertificatesProps> = ({
           </div>
 
           <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
-                <tr>
-                  <th className="py-3 px-4">Credential Code</th>
-                  <th className="py-3 px-4">Student Name</th>
-                  <th className="py-3 px-4">Program</th>
-                  <th className="py-3 px-4">Score</th>
-                  <th className="py-3 px-4">Issue Date</th>
-                  <th className="py-3 px-4 text-right">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {filtered.map((c) => (
-                  <tr key={c.id} className="hover:bg-slate-50/60">
-                    <td className="py-3 px-4 font-mono font-bold text-blue-700">
-                      {c.credentialCode}
-                    </td>
-                    <td className="py-3 px-4">
-                      <div className="font-semibold text-slate-900">{c.studentName}</div>
-                      <div className="text-[10px] text-slate-400">{c.studentEmail}</div>
-                    </td>
-                    <td className="py-3 px-4 text-slate-700">{c.courseTitle}</td>
-                    <td className="py-3 px-4 font-mono font-semibold text-slate-800">
-                      {c.scorePercent}%
-                    </td>
-                    <td className="py-3 px-4 text-slate-500">{c.issueDate}</td>
-                    <td className="py-3 px-4 text-right">
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                        <CheckCircle2 className="w-3 h-3" /> Verified
-                      </span>
-                    </td>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs min-w-[640px]">
+                <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
+                  <tr>
+                    <th className="py-3 px-4">Credential Code</th>
+                    <th className="py-3 px-4">Student Name</th>
+                    <th className="py-3 px-4">Program</th>
+                    <th className="py-3 px-4">Score</th>
+                    <th className="py-3 px-4">Issue Date</th>
+                    <th className="py-3 px-4 text-right">Status</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {filtered.map((c) => (
+                    <tr key={c.id} className="hover:bg-slate-50/60">
+                      <td className="py-3 px-4 font-mono font-bold text-blue-700">
+                        {c.credentialCode}
+                      </td>
+                      <td className="py-3 px-4">
+                        <div className="font-semibold text-slate-900">{c.studentName}</div>
+                        <div className="text-[10px] text-slate-400">{c.studentEmail}</div>
+                      </td>
+                      <td className="py-3 px-4 text-slate-700">{c.courseTitle}</td>
+                      <td className="py-3 px-4 font-mono font-semibold text-slate-800">
+                        {c.scorePercent}%
+                      </td>
+                      <td className="py-3 px-4 text-slate-500">{c.issueDate}</td>
+                      <td className="py-3 px-4 text-right">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                          <CheckCircle2 className="w-3 h-3" /> Verified
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       )}
