@@ -52,7 +52,7 @@ export const StudentAnnouncements: React.FC<{ announcements?: Announcement[] }> 
             key={item.id}
             className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs space-y-2"
           >
-            <div className="flex items-center justify-between text-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
               <div className="flex items-center gap-2">
                 <span
                   className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${

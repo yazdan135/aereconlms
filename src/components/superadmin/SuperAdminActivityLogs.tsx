@@ -62,36 +62,38 @@ export const SuperAdminActivityLogs: React.FC = () => {
       </div>
 
       <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
-        <table className="w-full text-left text-xs">
-          <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
-            <tr>
-              <th className="py-3 px-4">Timestamp</th>
-              <th className="py-3 px-4">Operator / User</th>
-              <th className="py-3 px-4">Module</th>
-              <th className="py-3 px-4">Action</th>
-              <th className="py-3 px-4">Description</th>
-              <th className="py-3 px-4">IP & Device</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100">
-            {filtered.map((log) => (
-              <tr key={log.id} className="hover:bg-slate-50/60">
-                <td className="py-3 px-4 text-slate-500 whitespace-nowrap">{log.timestamp}</td>
-                <td className="py-3 px-4 font-bold text-slate-900">{log.userName}</td>
-                <td className="py-3 px-4 text-slate-600">{log.module}</td>
-                <td className="py-3 px-4">
-                  <span className="font-mono text-[10px] font-bold bg-slate-100 text-slate-800 px-2 py-0.5 rounded">
-                    {log.action}
-                  </span>
-                </td>
-                <td className="py-3 px-4 text-slate-700 max-w-md leading-relaxed">{log.description}</td>
-                <td className="py-3 px-4 text-slate-400 font-mono text-[10px]">
-                  {log.ipAddress} • {log.device}
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs min-w-[700px]">
+            <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
+              <tr>
+                <th className="py-3 px-4">Timestamp</th>
+                <th className="py-3 px-4">Operator / User</th>
+                <th className="py-3 px-4">Module</th>
+                <th className="py-3 px-4">Action</th>
+                <th className="py-3 px-4">Description</th>
+                <th className="py-3 px-4">IP & Device</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {filtered.map((log) => (
+                <tr key={log.id} className="hover:bg-slate-50/60">
+                  <td className="py-3 px-4 text-slate-500 whitespace-nowrap">{log.timestamp}</td>
+                  <td className="py-3 px-4 font-bold text-slate-900">{log.userName}</td>
+                  <td className="py-3 px-4 text-slate-600">{log.module}</td>
+                  <td className="py-3 px-4">
+                    <span className="font-mono text-[10px] font-bold bg-slate-100 text-slate-800 px-2 py-0.5 rounded">
+                      {log.action}
+                    </span>
+                  </td>
+                  <td className="py-3 px-4 text-slate-700 max-w-md leading-relaxed">{log.description}</td>
+                  <td className="py-3 px-4 text-slate-400 font-mono text-[10px]">
+                    {log.ipAddress} • {log.device}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

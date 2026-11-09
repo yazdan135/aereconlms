@@ -267,66 +267,68 @@ export const SuperAdminRolesPermissions: React.FC<SuperAdminRolesPermissionsProp
       {/* ─── TAB 1: ALL ROLES DIRECTORY ─── */}
       {activeTab === 'roles' && (
         <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
-          <table className="w-full text-left text-xs">
-            <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
-              <tr>
-                <th className="py-3 px-4">Role Profile</th>
-                <th className="py-3 px-4">Description</th>
-                <th className="py-3 px-4">Assigned Users</th>
-                <th className="py-3 px-4">Modules Covered</th>
-                <th className="py-3 px-4">Type</th>
-                <th className="py-3 px-4">Last Updated</th>
-                <th className="py-3 px-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {roles.map((r) => (
-                <tr key={r.id} className="hover:bg-slate-50/60">
-                  <td className="py-3 px-4">
-                    <div className="flex items-center gap-2.5">
-                      <div
-                        className="w-3.5 h-3.5 rounded-full shrink-0"
-                        style={{ backgroundColor: r.color }}
-                      />
-                      <span className="font-bold text-slate-900">{r.name}</span>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4 text-slate-600 max-w-xs truncate">{r.description}</td>
-                  <td className="py-3 px-4 font-mono font-semibold text-slate-700">
-                    {r.userCount} users
-                  </td>
-                  <td className="py-3 px-4">
-                    <span className="inline-flex px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-700">
-                      {r.permissions.length} modules
-                    </span>
-                  </td>
-                  <td className="py-3 px-4">
-                    <span
-                      className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                        r.isSystem
-                          ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                          : 'bg-amber-50 text-amber-700 border border-amber-200'
-                      }`}
-                    >
-                      {r.isSystem ? 'System Core' : 'Custom Delegated'}
-                    </span>
-                  </td>
-                  <td className="py-3 px-4 text-slate-400">{r.updatedAt}</td>
-                  <td className="py-3 px-4 text-right">
-                    <button
-                      onClick={() => {
-                        handleSelectRoleInMatrix(r);
-                        setActiveTab('matrix');
-                      }}
-                      className="px-2.5 py-1 text-blue-600 hover:text-blue-700 font-semibold text-xs rounded-lg hover:bg-blue-50 transition-colors"
-                    >
-                      Configure Matrix
-                    </button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs min-w-[700px]">
+              <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
+                <tr>
+                  <th className="py-3 px-4">Role Profile</th>
+                  <th className="py-3 px-4">Description</th>
+                  <th className="py-3 px-4">Assigned Users</th>
+                  <th className="py-3 px-4">Modules Covered</th>
+                  <th className="py-3 px-4">Type</th>
+                  <th className="py-3 px-4">Last Updated</th>
+                  <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {roles.map((r) => (
+                  <tr key={r.id} className="hover:bg-slate-50/60">
+                    <td className="py-3 px-4">
+                      <div className="flex items-center gap-2.5">
+                        <div
+                          className="w-3.5 h-3.5 rounded-full shrink-0"
+                          style={{ backgroundColor: r.color }}
+                        />
+                        <span className="font-bold text-slate-900">{r.name}</span>
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 text-slate-600 max-w-xs truncate">{r.description}</td>
+                    <td className="py-3 px-4 font-mono font-semibold text-slate-700">
+                      {r.userCount} users
+                    </td>
+                    <td className="py-3 px-4">
+                      <span className="inline-flex px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-700">
+                        {r.permissions.length} modules
+                      </span>
+                    </td>
+                    <td className="py-3 px-4">
+                      <span
+                        className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                          r.isSystem
+                            ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                            : 'bg-amber-50 text-amber-700 border border-amber-200'
+                        }`}
+                      >
+                        {r.isSystem ? 'System Core' : 'Custom Delegated'}
+                      </span>
+                    </td>
+                    <td className="py-3 px-4 text-slate-400">{r.updatedAt}</td>
+                    <td className="py-3 px-4 text-right">
+                      <button
+                        onClick={() => {
+                          handleSelectRoleInMatrix(r);
+                          setActiveTab('matrix');
+                        }}
+                        className="px-2.5 py-1 text-blue-600 hover:text-blue-700 font-semibold text-xs rounded-lg hover:bg-blue-50 transition-colors"
+                      >
+                        Configure Matrix
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 

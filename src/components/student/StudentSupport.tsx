@@ -146,7 +146,7 @@ export const StudentSupport: React.FC<{
                 <h4 className="font-bold text-slate-900 text-xs">{t.subject}</h4>
                 <p className="text-slate-600 leading-relaxed">{t.message}</p>
 
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+                <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] text-slate-400">
                   <span>Logged: {t.createdAt}</span>
                   {t.assignedTo && <span>Assigned: {t.assignedTo}</span>}
                 </div>

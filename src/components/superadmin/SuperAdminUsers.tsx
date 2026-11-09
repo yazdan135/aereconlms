@@ -131,71 +131,73 @@ export const SuperAdminUsers: React.FC<{
 
       {/* Users Table */}
       <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
-        <table className="w-full text-left text-xs">
-          <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
-            <tr>
-              <th className="py-3 px-4">User</th>
-              <th className="py-3 px-4">Contact</th>
-              <th className="py-3 px-4">Assigned Role</th>
-              <th className="py-3 px-4">Account Status</th>
-              <th className="py-3 px-4">Last Login</th>
-              <th className="py-3 px-4 text-right">Actions</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100">
-            {filtered.map((user) => (
-              <tr key={user.id} className="hover:bg-slate-50/60">
-                <td className="py-3 px-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700 shrink-0">
-                      {user.fullName.slice(0, 2).toUpperCase()}
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs min-w-[720px]">
+            <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
+              <tr>
+                <th className="py-3 px-4">User</th>
+                <th className="py-3 px-4">Contact</th>
+                <th className="py-3 px-4">Assigned Role</th>
+                <th className="py-3 px-4">Account Status</th>
+                <th className="py-3 px-4">Last Login</th>
+                <th className="py-3 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {filtered.map((user) => (
+                <tr key={user.id} className="hover:bg-slate-50/60">
+                  <td className="py-3 px-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700 shrink-0">
+                        {user.fullName.slice(0, 2).toUpperCase()}
+                      </div>
+                      <div>
+                        <div className="font-bold text-slate-900">{user.fullName}</div>
+                        <div className="text-[10px] text-slate-400 font-mono">{user.id}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-bold text-slate-900">{user.fullName}</div>
-                      <div className="text-[10px] text-slate-400 font-mono">{user.id}</div>
-                    </div>
-                  </div>
-                </td>
-                <td className="py-3 px-4 text-slate-600">
-                  <div>{user.email}</div>
-                  <div className="text-[10px] text-slate-400">{user.phone}</div>
-                </td>
-                <td className="py-3 px-4">
-                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 uppercase tracking-wide">
-                    {user.role}
-                  </span>
-                </td>
-                <td className="py-3 px-4">
-                  <span
-                    className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${
-                      user.status === 'Active'
-                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                        : 'bg-red-50 text-red-700 border border-red-200'
-                    }`}
-                  >
-                    {user.status === 'Active' ? <CheckCircle2 className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
-                    {user.status}
-                  </span>
-                </td>
-                <td className="py-3 px-4 text-slate-500">{user.lastLogin}</td>
-                <td className="py-3 px-4 text-right">
-                  <div className="flex items-center justify-end gap-2">
-                    <button
-                      onClick={() => handleToggleStatus(user.id)}
-                      className={`text-xs font-semibold px-2 py-1 rounded-lg ${
+                  </td>
+                  <td className="py-3 px-4 text-slate-600">
+                    <div>{user.email}</div>
+                    <div className="text-[10px] text-slate-400">{user.phone}</div>
+                  </td>
+                  <td className="py-3 px-4">
+                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 uppercase tracking-wide">
+                      {user.role}
+                    </span>
+                  </td>
+                  <td className="py-3 px-4">
+                    <span
+                      className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${
                         user.status === 'Active'
-                          ? 'text-red-600 hover:bg-red-50'
-                          : 'text-emerald-600 hover:bg-emerald-50'
+                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                          : 'bg-red-50 text-red-700 border border-red-200'
                       }`}
                     >
-                      {user.status === 'Active' ? 'Suspend' : 'Reactivate'}
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                      {user.status === 'Active' ? <CheckCircle2 className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
+                      {user.status}
+                    </span>
+                  </td>
+                  <td className="py-3 px-4 text-slate-500">{user.lastLogin}</td>
+                  <td className="py-3 px-4 text-right">
+                    <div className="flex items-center justify-end gap-2">
+                      <button
+                        onClick={() => handleToggleStatus(user.id)}
+                        className={`text-xs font-semibold px-2 py-1 rounded-lg ${
+                          user.status === 'Active'
+                            ? 'text-red-600 hover:bg-red-50'
+                            : 'text-emerald-600 hover:bg-emerald-50'
+                        }`}
+                      >
+                        {user.status === 'Active' ? 'Suspend' : 'Reactivate'}
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* Add User Modal */}

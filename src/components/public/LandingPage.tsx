@@ -90,7 +90,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   return (
     <div className="min-h-screen bg-[#f8f9fa] text-slate-900 flex flex-col">
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-20 border-b border-slate-200/80 bg-linear-to-b from-white via-white to-slate-50/50">
+      <section id="overview" className="relative overflow-hidden pt-12 pb-20 border-b border-slate-200/80 bg-linear-to-b from-white via-white to-slate-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
             {/* Top Pill */}
@@ -376,7 +376,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* 4. Curriculum Syllabus Preview */}
-      <section className="py-16 bg-white border-b border-slate-200/80">
+      <section id="curriculum" className="py-16 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
@@ -458,7 +458,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* 5. Executive Instructor Spotlight */}
-      <section className="py-16 bg-[#f8f9fa] border-b border-slate-200/80">
+      <section id="faculty" className="py-16 bg-[#f8f9fa] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-xs flex flex-col md:flex-row items-center gap-6 sm:gap-8">
             <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl bg-linear-to-br from-slate-800 to-[#0f2b48] text-white flex flex-col items-center justify-center p-4 text-center shrink-0 shadow-inner">
@@ -493,7 +493,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* 6. Testimonials (Clearly identified demo reviews from real-style Pakistani enterprises) */}
-      <section className="py-16 bg-white border-b border-slate-200/80">
+      <section id="reviews" className="py-16 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
@@ -553,7 +553,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* 7. FAQ Section */}
-      <section className="py-16 bg-[#f8f9fa] border-b border-slate-200/80">
+      <section id="faq" className="py-16 bg-[#f8f9fa] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-600">

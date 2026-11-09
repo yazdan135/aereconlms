@@ -75,32 +75,34 @@ export const SuperAdminFinancialReports: React.FC<SuperAdminFinancialReportsProp
         <div className="p-4 border-b border-slate-100 flex items-center justify-between">
           <h3 className="text-sm font-bold text-slate-900">Income & Fee Settlement Audit Table</h3>
         </div>
-        <table className="w-full text-left text-xs">
-          <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
-            <tr>
-              <th className="py-3 px-4">Date</th>
-              <th className="py-3 px-4">Product Category</th>
-              <th className="py-3 px-4">Description</th>
-              <th className="py-3 px-4">Method & Ref</th>
-              <th className="py-3 px-4 text-right">Amount</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100">
-            {financialRecords.map((r) => (
-              <tr key={r.id} className="hover:bg-slate-50/60">
-                <td className="py-3 px-4 text-slate-500 whitespace-nowrap">{r.date}</td>
-                <td className="py-3 px-4 font-semibold text-slate-800">{r.category}</td>
-                <td className="py-3 px-4 text-slate-600">{r.description}</td>
-                <td className="py-3 px-4 text-slate-500 font-mono text-[10px]">
-                  {r.paymentMethod} • {r.referenceNumber}
-                </td>
-                <td className="py-3 px-4 text-right font-mono font-bold text-emerald-700">
-                  +PKR {r.amountPKR.toLocaleString()}
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs min-w-[620px]">
+            <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
+              <tr>
+                <th className="py-3 px-4">Date</th>
+                <th className="py-3 px-4">Product Category</th>
+                <th className="py-3 px-4">Description</th>
+                <th className="py-3 px-4">Method & Ref</th>
+                <th className="py-3 px-4 text-right">Amount</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {financialRecords.map((r) => (
+                <tr key={r.id} className="hover:bg-slate-50/60">
+                  <td className="py-3 px-4 text-slate-500 whitespace-nowrap">{r.date}</td>
+                  <td className="py-3 px-4 font-semibold text-slate-800">{r.category}</td>
+                  <td className="py-3 px-4 text-slate-600">{r.description}</td>
+                  <td className="py-3 px-4 text-slate-500 font-mono text-[10px]">
+                    {r.paymentMethod} • {r.referenceNumber}
+                  </td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-emerald-700">
+                    +PKR {r.amountPKR.toLocaleString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

@@ -176,19 +176,19 @@ export const AdminPaymentVerification: React.FC<AdminPaymentVerificationProps> =
           description={`Reference: ${selectedVerification.transactionReference} • Submitted: ${selectedVerification.submittedAt}`}
           maxWidth="lg"
           footer={
-            <div className="flex items-center justify-between w-full">
+            <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-2.5 w-full">
               <button
                 onClick={() => setSelectedVerification(null)}
-                className="px-3 py-1.5 text-xs text-slate-600 hover:text-slate-800"
+                className="w-full sm:w-auto px-3 py-1.5 text-xs text-slate-600 hover:text-slate-800 text-center"
               >
                 Close
               </button>
 
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
                 {selectedVerification.status !== 'Rejected' && (
                   <button
                     onClick={() => handleReject(selectedVerification)}
-                    className="px-3 py-1.5 rounded-lg border border-rose-300 text-rose-700 hover:bg-rose-50 text-xs font-semibold"
+                    className="w-full sm:w-auto px-3 py-1.5 rounded-lg border border-rose-300 text-rose-700 hover:bg-rose-50 text-xs font-semibold"
                   >
                     Reject Slip
                   </button>
@@ -196,10 +196,10 @@ export const AdminPaymentVerification: React.FC<AdminPaymentVerificationProps> =
                 {selectedVerification.status !== 'Approved' && (
                   <button
                     onClick={() => handleApprove(selectedVerification)}
-                    className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-xs flex items-center gap-1.5"
+                    className="w-full sm:w-auto px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-xs flex items-center justify-center gap-1.5"
                   >
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Approve & Grant Enrollment Access</span>
+                    <span>Approve & Grant Access</span>
                   </button>
                 )}
               </div>

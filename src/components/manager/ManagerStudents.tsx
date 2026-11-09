@@ -822,54 +822,56 @@ export const ManagerStudents: React.FC<ManagerStudentsProps> = ({
                 </div>
 
                 <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs">
-                  <table className="w-full text-xs text-left">
-                    <thead className="bg-slate-50/70 border-b border-slate-100 text-slate-500 uppercase tracking-wider text-[10px]">
-                      <tr>
-                        <th className="px-3.5 py-2.5 font-semibold">Timestamp (PKT)</th>
-                        <th className="px-3.5 py-2.5 font-semibold">Action / Event</th>
-                        <th className="px-3.5 py-2.5 font-semibold">Description</th>
-                        <th className="px-3.5 py-2.5 font-semibold">Device & IP Address</th>
-                        <th className="px-3.5 py-2.5 font-semibold">Severity</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100">
-                      {filteredAuditLogs.map((log) => (
-                        <tr key={log.id} className="hover:bg-slate-50/50 transition-colors">
-                          <td className="px-3.5 py-2.5 font-mono text-[11px] text-slate-600 whitespace-nowrap">
-                            {log.timestamp}
-                          </td>
-                          <td className="px-3.5 py-2.5">
-                            <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-100 text-slate-800 border border-slate-200">
-                              {log.action}
-                            </span>
-                          </td>
-                          <td className="px-3.5 py-2.5 text-slate-700 font-medium">
-                            {log.description}
-                          </td>
-                          <td className="px-3.5 py-2.5 text-[11px]">
-                            <div className="font-semibold text-slate-800">{log.device}</div>
-                            <div className="font-mono text-slate-400 text-[10px]">
-                              {log.ipAddress}
-                            </div>
-                          </td>
-                          <td className="px-3.5 py-2.5">
-                            <Badge
-                              variant={
-                                log.severity === 'success'
-                                  ? 'success'
-                                  : log.severity === 'warning'
-                                  ? 'warning'
-                                  : 'info'
-                              }
-                              size="sm"
-                            >
-                              {log.severity}
-                            </Badge>
-                          </td>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs text-left min-w-[640px]">
+                      <thead className="bg-slate-50/70 border-b border-slate-100 text-slate-500 uppercase tracking-wider text-[10px]">
+                        <tr>
+                          <th className="px-3.5 py-2.5 font-semibold">Timestamp (PKT)</th>
+                          <th className="px-3.5 py-2.5 font-semibold">Action / Event</th>
+                          <th className="px-3.5 py-2.5 font-semibold">Description</th>
+                          <th className="px-3.5 py-2.5 font-semibold">Device & IP Address</th>
+                          <th className="px-3.5 py-2.5 font-semibold">Severity</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100">
+                        {filteredAuditLogs.map((log) => (
+                          <tr key={log.id} className="hover:bg-slate-50/50 transition-colors">
+                            <td className="px-3.5 py-2.5 font-mono text-[11px] text-slate-600 whitespace-nowrap">
+                              {log.timestamp}
+                            </td>
+                            <td className="px-3.5 py-2.5">
+                              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-100 text-slate-800 border border-slate-200">
+                                {log.action}
+                              </span>
+                            </td>
+                            <td className="px-3.5 py-2.5 text-slate-700 font-medium">
+                              {log.description}
+                            </td>
+                            <td className="px-3.5 py-2.5 text-[11px]">
+                              <div className="font-semibold text-slate-800">{log.device}</div>
+                              <div className="font-mono text-slate-400 text-[10px]">
+                                {log.ipAddress}
+                              </div>
+                            </td>
+                            <td className="px-3.5 py-2.5">
+                              <Badge
+                                variant={
+                                  log.severity === 'success'
+                                    ? 'success'
+                                    : log.severity === 'warning'
+                                    ? 'warning'
+                                    : 'info'
+                                }
+                                size="sm"
+                              >
+                                {log.severity}
+                              </Badge>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             )}
